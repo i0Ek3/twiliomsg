@@ -1,22 +1,7 @@
 #!/bin/bash
 
-read_info() {
-    echo -e "\033[36mWhat's your phone number? [like 12132832283]\033[0m"
-    read from
-    echo -e "\033[36mWhose number is used to receive? [like 1213282283]\033[0m"
-    read to
-    echo -e "\033[36mWhat's content you want to send? [like \"hi there\"]\033[0m"
-    read body
-}
-
-send_by_cli() {
-    twilio api:core:messages:create \
-        --body $body \
-        --from +$from \
-        --to +$to
-}
-
 preinstall() {
+    echo -e "\033[34mInstalling prelibs...\033[0m"
     platform=$(uname -s)
 
     if [ $platform == "Darwin" ]
@@ -31,6 +16,22 @@ preinstall() {
     fi
     pip install twilio
     #sudo easy_install twilio
+}
+
+read_info() {
+    echo -e "\033[36mWhat's your phone number? [like 12132832283]\033[0m"
+    read from
+    echo -e "\033[36mWhose number is used to receive? [like 1213282283]\033[0m"
+    read to
+    echo -e "\033[36mWhat's content you want to send? [like \"hi there\"]\033[0m"
+    read body
+}
+
+send_by_cli() {
+    twilio api:core:messages:create \
+        --body $body \
+        --from +$from \
+        --to +$to
 }
 
 send_by_curl() {
@@ -52,7 +53,6 @@ login() {
 }
 
 main() {
-    echo -e "\033[34mInstalling prelibs...\033[0m"
     preinstall
     login
     read_info
