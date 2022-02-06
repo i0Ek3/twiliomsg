@@ -4,7 +4,9 @@
 
 ### Send
 
-Run `./sendmsg.sh` and follows the hints. But first, change the constant `FROM, TO, BODY` to your own in send.py and sendmsg.sh.
+Run `./sendmsg.sh` and follows the hints. But first, change the constant `FROM, TO, BODY` to your own in sendmsg.sh.
+
+If you want use `send.py`, please ensure the twilio libs installed first. If not, please run command `pip install twilio` to install it.
 
 ### Receive
 
