@@ -8,7 +8,7 @@ preinstall() {
     then
         brew tap twilio/brew && brew install twilio
         brew install jq
-    elif [ $platform == 'Linux' ]
+    elif [ $platform == "Linux" ]
     then
         sudo apt install -y twilio jq
     else
